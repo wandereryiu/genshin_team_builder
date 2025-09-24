@@ -14,8 +14,10 @@ This project is of personal interest to me because Genshin Impact is a game I ha
 
 - As a user, I want to be able to view all the characters that I currently have.
 
+- As a user, I want to be able to filter characters based on their element.
+
 - As a user, I want to be able to build team compositions.
 
 - As a user, I want to be able to add and keep track of what character ascension materials I need, including what days of the week I can farm them.
 
-- As a user, I want to be able to remove a character from my roster of attained characters.
+- As a user, I want to be able to remove a character from my original list of attained characters.
