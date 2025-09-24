@@ -8,3 +8,14 @@ This application aims to help any veterans and new players to the game to make t
 
 ### *Personal Anecdote*
 This project is of personal interest to me because Genshin Impact is a game I have been playing frequently for the past year, and having a tool that helps with team building would have made things a lot easier for me.
+
+## User Stories
+- As a user, I want to be able to add characters that I have obtained to my roster along with their assigned element and roles. 
+
+- As a user, I want to be able to view all the characters that I currently have.
+
+- As a user, I want to be able to build team compositions.
+
+- As a user, I want to be able to add and keep track of what character ascension materials I need, including what days of the week I can farm them.
+
+- As a user, I want to be able to remove a character from my roster of attained characters.
