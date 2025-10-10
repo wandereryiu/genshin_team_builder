@@ -197,7 +197,7 @@ public class TeamBuilderApp {
     }
 
     // EFFECTS: returns character in Character archive if it currently exists,
-    // otherwise returns nothing
+    //          otherwise returns nothing
     private Character findCharacterInArchive(String name) {
         for (Character c : archive.getAllCharacters()) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -211,7 +211,7 @@ public class TeamBuilderApp {
     private void viewTeamComposition() {
         System.out.println("\nCurrent Team:");
         for (Character c : team.getAllCharacters()) {
-            System.out.println(c.getName() + " ~ Element: " + c.getElement() + " ~ Roles: " + c.getRoles());
+            System.out.println(c.getName() + " || Element: " + c.getElement() + " || Roles: " + c.getRoles());
         }
     }
 
