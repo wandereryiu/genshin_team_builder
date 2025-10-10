@@ -40,14 +40,27 @@ public class CharacterArchive {
         return false;
     }
 
+    // REQUIRES: element is not empty or null
     // EFFECTS: returns a filtered list of characters with the specified element
     public ArrayList<Character> filterByElement(String element) {
-        return null;
+        ArrayList<Character> filteredElementList = new ArrayList<Character>();
+        for (Character c: characters) {
+            if (c.getElement().equalsIgnoreCase(element)) {
+                filteredElementList.add(c);
+            }
+        }
+        return filteredElementList;
     }
 
-
+    // REQUIRES: role is not empty or null
     // EFFECTS: returns a filtered list of characters with the specified role
     public ArrayList<Character> filterByRole(String role) {
-        return null;
+        ArrayList<Character> filteredRoleList = new ArrayList<Character>();
+        for (Character c: characters) {
+            if (c.hasRole(role)){
+                filteredRoleList.add(c);
+            }
+        }
+        return filteredRoleList;
     }
 }
