@@ -58,6 +58,7 @@ public class TeamComposition {
 
     // EFFECTS: returns a set of all elemental reactions possible in a team
     public Set<String> getElementalReactions() {
-        return null;
+        Set<String> elements = getElementsPresent();
+        return ElementalReactions.getReactions(elements);
     }
 }
