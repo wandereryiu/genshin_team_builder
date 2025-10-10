@@ -1,31 +1,42 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
-// Represents an arbitrary list of all attained characters (called Character Archive to match in-game naming conventions)
+// Represents an arbitrary list of all attained characters 
+// (called Character Archive to match in-game naming conventions)
 public class CharacterArchive {
-    private List<Character> characters = new ArrayList<Character>();
-
+    private ArrayList<Character> characters = new ArrayList<Character>();
 
     // EFFECTS: returns a copy of all existing characters in the archive
-    public List<Character> getAllCharacters() {
-        return new ArrayList<>();
+    public ArrayList<Character> getAllCharacters() {
+        return new ArrayList<>(characters);
     }
 
     // REQUIRES: character must not be null
     // MODIFIES: this
-    // EFFECTS: adds character to the list if it does not already exist,
+    // EFFECTS: adds character to the list and returns true if it does not already exist,
     //          otherwise returns false
     public boolean addCharacter(Character character) {
-        return false;
+        for (Character c: characters) {
+            if (c.getName().equalsIgnoreCase(character.getName())) {
+                return false;
+            }
+        }
+        characters.add(character);
+        return true;
     }
 
     // REQUIRES: character must not be null
     // MODIFIES: this
-    // EFFECTS: removes character from the list if it does not already exist,
+    // EFFECTS: removes character from the list and returns true if it exists in the list,
     //          otherwise returns false
     public boolean removeCharacter(Character character) {
+        for (Character c: characters) {
+            if (c.getName().equalsIgnoreCase(character.getElement())) {
+                characters.remove(c);
+                return true;
+            }
+        }
         return false;
     }
 }
