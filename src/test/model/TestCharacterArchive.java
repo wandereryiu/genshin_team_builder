@@ -102,7 +102,7 @@ public class TestCharacterArchive {
         testArchive.addCharacter(testCharacter1);
         testArchive.addCharacter(testCharacter2);
         testArchive.addCharacter(testCharacter3);
-        ArrayList<Character> testFilteredRole = testArchive.filterByRole("Off-Field DPS");
+        ArrayList<Character> testFilteredRole = testArchive.filterByRole("Off-Field Support");
         assertEquals(1, testFilteredRole.size());
         assertTrue(testFilteredRole.contains(testCharacter1));
         assertFalse(testFilteredRole.contains(testCharacter2));
