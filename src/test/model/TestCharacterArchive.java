@@ -24,7 +24,6 @@ public class TestCharacterArchive {
 
     @Test
     void testAddCharacter() {
-        testArchive.addCharacter(testCharacter1);
         assertTrue(testArchive.addCharacter(testCharacter1));
     }
 
@@ -38,27 +37,35 @@ public class TestCharacterArchive {
 
     @Test
     void testAddDuplicateCharacter() {
-        testArchive.addCharacter(testCharacter1);
         assertTrue(testArchive.addCharacter(testCharacter1));
-        testArchive.addCharacter(testCharacter1);
         assertFalse(testArchive.addCharacter(testCharacter1));
+    }
+
+    @Test 
+    void testAddCharacterWithSameName() {
+        assertTrue(testArchive.addCharacter(testCharacter1));
+        Character testCharacterCopy = new Character("Lauma", "Hydro");
+        assertFalse(testArchive.addCharacter(testCharacterCopy));
     }
 
     @Test
     void testRemoveCharacter() {
-        testArchive.addCharacter(testCharacter1);
         assertTrue(testArchive.addCharacter(testCharacter1));
-        testArchive.removeCharacter(testCharacter1);
         assertTrue(testArchive.removeCharacter(testCharacter1));
         assertEquals(0, testArchive.getAllCharacters().size());
     }
 
     @Test
     void testRemoveNonexistentCharacter() {
-        testArchive.removeCharacter(testCharacter1);
         assertFalse(testArchive.removeCharacter(testCharacter1));
     }
 
+    @Test
+    void testRemoveWrongCharacter() {
+        assertTrue(testArchive.addCharacter(testCharacter1));
+        Character testRandomCharacter = new Character("Bennett", "Pyro");
+        assertFalse(testArchive.removeCharacter(testRandomCharacter));
+    }
 
     @Test
     void testGetAllCharacters() {
