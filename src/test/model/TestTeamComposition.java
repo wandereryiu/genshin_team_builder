@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 public class TestTeamComposition {
@@ -133,5 +134,16 @@ public class TestTeamComposition {
 
         Set<String> reactions = testTeam.getElementalReactions();
         assertTrue(reactions.isEmpty());
+    }
+
+    @Test
+    void testGetAllCharacters() {
+        assertTrue(testTeam.addCharacter(testCharacter1));
+        assertTrue(testTeam.addCharacter(testCharacter2));
+    
+        ArrayList<Character> teamMembers = testTeam.getAllCharacters();
+        assertEquals(2, teamMembers.size());
+        assertTrue(teamMembers.contains(testCharacter1));
+        assertTrue(teamMembers.contains(testCharacter2));
     }
 }
