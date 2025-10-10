@@ -11,42 +11,51 @@ public class Character {
 
     // EFFECTS: Creates a new character with a name and element that has an empty set of roles
     public Character(String name, String element) {
-        //stub
+        this.name = name;
+        this.element = element;
+        this.roles = new HashSet<>();
     }
 
     public String getName() {
-        return "";
+        return name;
     }
 
     public String getElement() {
-        return "";
+        return element;
     }
 
     // EFFECTS: returns a copy of the set of roles a given character has
     public Set<String> getRoles() {
-        return null;
+        return new HashSet<>(roles);
     }
 
     // REQUIRES: role must not be an empty string
     // MODIFIES: this
     // EFFECTS: adds role to the set of roles if it is not already in the set
     public void addRole(String role) {
-        //stub
+        if (role == null || role.isEmpty()) {
+            return;
+        }
+        roles.add(role);
     }
 
     // REQUIRES: role must not be an empty string
     // MODIFIES: this 
     // EFFECTS: removes the role from existing set of roles if it is present
     public void removeRole(String role) {
-        //stub
+        if (role == null || role.isEmpty()) {
+            return;
+        }
+        roles.remove(role);
     }
 
     // REQUIRES: role must not be an empty string
     // EFFECTS: returns true if the character already has the specified role, 
     //          otherwise false
     public boolean hasRole(String role) {
-        return false;
+        if (role == null || role.isEmpty()) {
+            return false;
+        }
+        return roles.contains(role);
     }
-
-    
 }
