@@ -102,4 +102,36 @@ public class TestTeamComposition {
         assertTrue(testElementsPresent.contains("Anemo"));
         assertTrue(testElementsPresent.contains("Geo"));
     }
+
+
+    @Test
+    void testElectroHydroReactionReaction() {
+        assertTrue(testTeam.addCharacter(testCharacter1));
+        testCharacter5.addRole("Off-Field DPS");
+        assertTrue(testTeam.addCharacter(testCharacter5));
+
+        Set<String> reactions = testTeam.getElementalReactions();
+        assertTrue(reactions.contains("Electro-charged"));
+        assertEquals(1, reactions.size());
+    }
+
+    @Test
+    void testMulipleCharacterReactions() {
+        assertTrue(testTeam.addCharacter(testCharacter1));
+        assertTrue(testTeam.addCharacter(testCharacter3));
+        assertTrue(testTeam.addCharacter(testCharacter5));
+
+        Set<String> reactions = testTeam.getElementalReactions();
+        assertTrue(reactions.contains("Electro-charged"));
+        assertEquals(1, reactions.size());
+    }
+
+    @Test
+    void testNoReactions() {
+        assertTrue(testTeam.addCharacter(testCharacter3));
+        assertTrue(testTeam.addCharacter(testCharacter4));
+
+        Set<String> reactions = testTeam.getElementalReactions();
+        assertTrue(reactions.isEmpty());
+    }
 }
