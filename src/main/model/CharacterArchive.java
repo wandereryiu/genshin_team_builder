@@ -39,4 +39,15 @@ public class CharacterArchive {
         }
         return false;
     }
+
+    // EFFECTS: returns a filtered list of characters with the specified element
+    public ArrayList<Character> filterByElement(String element) {
+        return null;
+    }
+
+
+    // EFFECTS: returns a filtered list of characters with the specified role
+    public ArrayList<Character> filterByRole(String role) {
+        return null;
+    }
 }
