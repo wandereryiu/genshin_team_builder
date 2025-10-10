@@ -80,7 +80,7 @@ public class TestCharacterArchive {
     }
 
     @Test
-    void testFilterByElement(){
+    void testFilterByElement() {
         testArchive.addCharacter(testCharacter1);
         testArchive.addCharacter(testCharacter2);
         testArchive.addCharacter(testCharacter3);
