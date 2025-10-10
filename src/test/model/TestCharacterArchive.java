@@ -17,8 +17,11 @@ public class TestCharacterArchive {
     @BeforeEach
     void runBefore() {
         testCharacter1 = new Character("Lauma", "Dendro");
+        testCharacter1.addRole("Off-Field Support");
         testCharacter2 = new Character("Clorinde", "Electro");
+        testCharacter2.addRole("On-Field DPS");
         testCharacter3 = new Character("Arlecchino", "Pyro");
+        testCharacter3.addRole("On-Field DPS");
         testArchive = new CharacterArchive();
     }
 
@@ -75,4 +78,43 @@ public class TestCharacterArchive {
         ArrayList<Character> testArchiveCopy = testArchive.getAllCharacters();
         assertEquals(3, testArchiveCopy.size());
     }
+
+    @Test
+    void testFilterByElement(){
+        testArchive.addCharacter(testCharacter1);
+        testArchive.addCharacter(testCharacter2);
+        testArchive.addCharacter(testCharacter3);
+        ArrayList<Character> testFilteredElement = testArchive.filterByElement("Dendro");
+        assertEquals(1, testFilteredElement.size());
+        assertTrue(testFilteredElement.contains(testCharacter1));
+    }
+
+    @Test
+    void testFilterByNonExistingElement() {
+        testArchive.addCharacter(testCharacter1);
+        ArrayList<Character> testFilteredElement = testArchive.filterByElement("Pyro");
+        assertEquals(0, testFilteredElement.size());
+        assertFalse(testFilteredElement.contains(testCharacter1));
+    }
+
+    @Test
+    void testFilterByRole() {
+        testArchive.addCharacter(testCharacter1);
+        testArchive.addCharacter(testCharacter2);
+        testArchive.addCharacter(testCharacter3);
+        ArrayList<Character> testFilteredRole = testArchive.filterByRole("Off-Field DPS");
+        assertEquals(1, testFilteredRole.size());
+        assertTrue(testFilteredRole.contains(testCharacter1));
+        assertFalse(testFilteredRole.contains(testCharacter2));
+    }
+
+    @Test
+    void testFilterByNonExistingRole() {
+        testArchive.addCharacter(testCharacter2);
+        ArrayList<Character> testFilteredRole = testArchive.filterByRole("Off-Field DPS");
+        assertEquals(0, testFilteredRole.size());
+        assertFalse(testFilteredRole.contains(testCharacter2));
+    }
+
+
 }
