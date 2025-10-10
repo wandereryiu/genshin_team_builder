@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents an arbitrary list of all attained characters (called Character Archive to match in-game naming conventions)
 public class CharacterArchive {
     private List<Character> characters = new ArrayList<Character>();
 
