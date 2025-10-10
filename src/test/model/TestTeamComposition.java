@@ -41,7 +41,7 @@ public class TestTeamComposition {
     @Test
     void testAddDuplicateCharacter() {
         assertTrue(testTeam.addCharacter(testCharacter1));
-        assertTrue(testTeam.addCharacter(testCharacter1));
+        assertFalse(testTeam.addCharacter(testCharacter1));
         assertEquals(1, testTeam.size());
     }
 
@@ -83,9 +83,9 @@ public class TestTeamComposition {
         assertTrue(testTeam.addCharacter(testCharacter2));
         assertTrue(testTeam.addCharacter(testCharacter3));
         assertTrue(testTeam.addCharacter(testCharacter4));
-        Set<String> testRolesPresent = testTeam.getElementsPresent();
+        Set<String> testRolesPresent = testTeam.getRolesPresent();
         assertEquals(4, testRolesPresent.size());
-        assertTrue(testRolesPresent.contains("Main DPS"));
+        assertTrue(testRolesPresent.contains("On-Field DPS"));
         assertTrue(testRolesPresent.contains("Off-Field DPS"));
         assertTrue(testRolesPresent.contains("Buffer"));
         assertTrue(testRolesPresent.contains("Support"));
