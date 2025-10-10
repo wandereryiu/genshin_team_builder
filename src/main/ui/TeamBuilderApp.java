@@ -226,8 +226,11 @@ public class TeamBuilderApp {
     // EFFECTS: prints out all elements in the team, without duplicates
     private void viewElementalReactions() {
         System.out.println("\nElemental reactions possible:");
+        if (team.getElementalReactions().isEmpty()) {
+            System.out.println("No reactions possible.");
+        }
         for (String reaction : team.getElementalReactions()) {
-            System.out.println("- " + reaction);
+            System.out.println("**" + reaction + "**");
         }
     }
 }
