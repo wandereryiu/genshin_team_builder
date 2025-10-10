@@ -3,7 +3,7 @@ package model;
 import java.util.HashSet;
 import java.util.Set;
 
-// Represents a character that has a name, element, role(s), and required ascension materials
+// Represents a character that has a name, element and role(s)
 public class Character {
     private String name; // character name
     private String element; // one of: Anemo, Geo, Electro, Dendro, Hydro, Pyro, Cryo
