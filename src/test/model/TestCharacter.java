@@ -73,4 +73,26 @@ public class TestCharacter {
         assertFalse(testCharacter.hasRole("Healer"));
         assertEquals(2, testCharacter.getRoles().size());
     }
+
+    @Test
+    void testAddEmptyRole() {
+        testCharacter.addRole(null);
+        testCharacter.addRole("");
+        assertEquals(0, testCharacter.getRoles().size());
+    }
+
+    @Test
+    void testRemoveEmptyRole() {
+        testCharacter.addRole("Main DPS");
+        testCharacter.removeRole(null);
+        testCharacter.removeRole("");
+        assertEquals(1, testCharacter.getRoles().size());
+    }
+
+    @Test
+    void testHasEmptyRole() {
+        testCharacter.addRole("Main DPS");
+        assertFalse(testCharacter.hasRole(""));
+        assertFalse(testCharacter.hasRole(null));
+    }
 }
