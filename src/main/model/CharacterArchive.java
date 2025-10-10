@@ -32,7 +32,7 @@ public class CharacterArchive {
     //          otherwise returns false
     public boolean removeCharacter(Character character) {
         for (Character c: characters) {
-            if (c.getName().equalsIgnoreCase(character.getElement())) {
+            if (c.getName().equalsIgnoreCase(character.getName())) {
                 characters.remove(c);
                 return true;
             }
