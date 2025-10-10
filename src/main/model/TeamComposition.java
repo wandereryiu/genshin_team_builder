@@ -38,6 +38,12 @@ public class TeamComposition {
         return team.remove(character);
     }
 
+    // EFFECTS: returns a copy of the list of all characters present in the team
+    public ArrayList<Character> getAllCharacters() {
+        return null;
+    }
+
+
     // EFFECTS: returns a set of all roles present in the team
     public Set<String> getRolesPresent() {
         Set<String> rolesPresent = new HashSet<String>();
