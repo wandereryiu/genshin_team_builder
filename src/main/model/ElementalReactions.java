@@ -5,7 +5,8 @@ import java.util.Set;
 
 // Helper class for elemental reactions
 public class ElementalReactions {
-    private ElementalReactions() {}
+    private ElementalReactions() {
+    }
     
     @SuppressWarnings("methodlength")
 

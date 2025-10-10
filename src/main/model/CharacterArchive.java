@@ -57,7 +57,7 @@ public class CharacterArchive {
     public ArrayList<Character> filterByRole(String role) {
         ArrayList<Character> filteredRoleList = new ArrayList<Character>();
         for (Character c: characters) {
-            if (c.hasRole(role)){
+            if (c.hasRole(role)) {
                 filteredRoleList.add(c);
             }
         }
