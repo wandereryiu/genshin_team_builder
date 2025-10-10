@@ -40,7 +40,7 @@ public class TeamComposition {
 
     // EFFECTS: returns a copy of the list of all characters present in the team
     public ArrayList<Character> getAllCharacters() {
-        return null;
+        return new ArrayList<>(team);
     }
 
 
