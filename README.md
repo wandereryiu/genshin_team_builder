@@ -12,15 +12,19 @@ This project is of personal interest to me because Genshin Impact is a game I ha
 ## User Stories
 - As a user, I want to be able to add characters that I have obtained to my roster along with their assigned element and roles. 
 
-- As a user, I want to be able to view all the characters that I currently have.
+- As a user, I want to be able to view all the characters that I currently have
 
-- As a user, I want to be able to remove a character from my original list of attained characters.
+- As a user, I want to be able to remove a character from my original list of attained characters
 
-- As a user, I want to be able to filter characters based on their element or roles.
+- As a user, I want to be able to filter characters based on their element or roles
 
-- As a user, I want to be able to build team compositions based on elemental resonance and/or different roles.
+- As a user, I want to be able to build team compositions based on elemental resonance and/or different roles
+
+- As a user, I want to be able to save my Character Archive that contains all the characters I added 
+
+- As a user, I want to be able to load my Character Archive from the last time I used it
 
 ### *Tentative To-Do List*
-- As a user, I want to be able to add and keep track of what talent ascension materials I need, including what days of the week I can farm them.
+- As a user, I want to be able to add and keep track of what talent ascension materials I need, including what days of the week I can farm them
 
-- As a user, I want to be able add characters I wish to obtain in the future into a wishlist.
+- As a user, I want to be able add characters I wish to obtain in the future into a wishlist
