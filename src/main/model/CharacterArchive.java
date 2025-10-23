@@ -2,9 +2,13 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents an arbitrary list of all attained characters 
 // (called Character Archive to match in-game naming conventions)
-public class CharacterArchive {
+public class CharacterArchive implements Writable {
     private ArrayList<Character> characters = new ArrayList<Character>();
 
     // EFFECTS: returns a copy of all existing characters in the archive
@@ -62,5 +66,26 @@ public class CharacterArchive {
             }
         }
         return filteredRoleList;
+    }
+
+    // Referenced from JsonSerializationDemo
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("archive", "Character Archive");
+        json.put("characters", charactersToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray charactersToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Character c: characters) {
+            jsonArray.put(c.toJson());
+        }
+
+        return jsonArray;
     }
 }

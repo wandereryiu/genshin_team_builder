@@ -3,8 +3,11 @@ package model;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a character that has a name, element and role(s)
-public class Character {
+public class Character implements Writable {
     private String name; // character name
     private String element; // one of: Anemo, Geo, Electro, Dendro, Hydro, Pyro, Cryo
     private Set<String> roles = new HashSet<>(); // Main DPS, Off-field DPS, Support, Healer, etc.
@@ -57,5 +60,16 @@ public class Character {
             return false;
         }
         return roles.contains(role);
+    }
+
+    // Referenced from JsonSerializationDemo
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("element", element);
+        json.put("roles", roles);
+        return json;
     }
 }
