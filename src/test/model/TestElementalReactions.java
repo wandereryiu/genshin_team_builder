@@ -40,17 +40,18 @@ public class TestElementalReactions {
         testElements.add("Electro");
 
         Set<String> testReactions = ElementalReactions.getReactions(testElements);
-        assertTrue(testReactions.contains("Quicken"));    
+        assertTrue(testReactions.contains("Aggravate/Quicken"));    
     }
 
     @Test
-    void testDendrElectroWithoutHydroReaction() {
+    void testDendrElectroWithHydroReaction() {
         testElements.add("Dendro");
         testElements.add("Electro");
+        testElements.add("Hydro");
 
         Set<String> testReactions = ElementalReactions.getReactions(testElements);
-        assertTrue(testReactions.contains("Quicken"));
-        assertFalse(testReactions.contains("Hyperbloom"));    
+        assertTrue(testReactions.contains("Aggravate/Quicken"));
+        assertTrue(testReactions.contains("Bloom"));    
     }
 
     @Test
@@ -97,7 +98,7 @@ public class TestElementalReactions {
         testElements.add("Electro");
 
         Set<String> testReactions = ElementalReactions.getReactions(testElements);
-        assertTrue(testReactions.contains("Electro-charged")); 
+        assertTrue(testReactions.contains("Electro Charged")); 
     }
 
     @Test
@@ -147,7 +148,8 @@ public class TestElementalReactions {
         Set<String> testReactions = ElementalReactions.getReactions(testElements);
         assertTrue(testReactions.contains("Burning"));
         assertTrue(testReactions.contains("Vaporize"));
-        assertTrue(testReactions.contains("Electro-charged")); 
+        assertTrue(testReactions.contains("Electro Charged")); 
+        assertTrue(testReactions.contains("Bloom"));
     }
 
     @Test
