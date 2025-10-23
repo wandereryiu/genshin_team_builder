@@ -25,6 +25,7 @@ public class ElementalReactions {
         ELEMENTAL_REACTIONS.put(Set.of("Hydro", "Cryo"), "Freeze");
         ELEMENTAL_REACTIONS.put(Set.of("Cryo", "Pyro"), "Melt");
         ELEMENTAL_REACTIONS.put(Set.of("Cryo", "Electro"), "Superconduct");
+        ELEMENTAL_REACTIONS.put(Set.of("Pyro", "Electro"), "Overloaded");
     }
     
     private ElementalReactions() {
