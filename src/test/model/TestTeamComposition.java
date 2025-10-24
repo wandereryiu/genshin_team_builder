@@ -112,7 +112,7 @@ public class TestTeamComposition {
         assertTrue(testTeam.addCharacter(testCharacter5));
 
         Set<String> reactions = testTeam.getElementalReactions();
-        assertTrue(reactions.contains("Electro-charged"));
+        assertTrue(reactions.contains("Electro Charged"));
         assertEquals(1, reactions.size());
     }
 
@@ -123,7 +123,7 @@ public class TestTeamComposition {
         assertTrue(testTeam.addCharacter(testCharacter5));
 
         Set<String> reactions = testTeam.getElementalReactions();
-        assertTrue(reactions.contains("Electro-charged"));
+        assertTrue(reactions.contains("Electro Charged"));
         assertEquals(1, reactions.size());
     }
 
