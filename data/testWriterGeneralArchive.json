@@ -1,0 +1,17 @@
+{"characters": [
+    {
+        "roles": ["Support"],
+        "name": "Kazuha",
+        "element": "Anemo"
+    },
+    {
+        "roles": ["Support"],
+        "name": "Xilonen",
+        "element": "Geo"
+    },
+    {
+        "roles": ["Main DPS"],
+        "name": "Lyney",
+        "element": "Pyro"
+    }
+]}

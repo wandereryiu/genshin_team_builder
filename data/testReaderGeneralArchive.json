@@ -1,0 +1,16 @@
+{ "characters": [
+    {
+        "roles": ["Main DPS"],
+        "name": "Neuvilette",
+        "element": "Hydro"
+    },
+    {
+        "roles": [
+            "Off-Field DPS",
+            "Support"
+        ],
+        "name": "Furina",
+        "element": "Hydro"
+    }
+
+]}
