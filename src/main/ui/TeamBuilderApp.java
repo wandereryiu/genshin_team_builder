@@ -1,30 +1,43 @@
 package ui;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.Character;
 import model.CharacterArchive;
 import model.TeamComposition;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 /*
  * 
  * 
  * 
- * Code from TellerApp provided in EdX Project Phase 1 page
+ * Code from TellerApp and JsonSerializationDemo provided from EdX Course Page
  * 
  * 
  * 
  */
 
-// Team builder application
+
+// Represents the team builder application
+@ExcludeFromJacocoGeneratedReport
 public class TeamBuilderApp {
+    private static final String JSON_STORE = "./data/archive.json";
     private CharacterArchive archive;
     private TeamComposition team;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the team builder application
-    public TeamBuilderApp() {
+    public TeamBuilderApp() throws FileNotFoundException {
+        input = new Scanner(System.in);
+        archive = new CharacterArchive();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runTeamBuilder();
     }
 
@@ -33,6 +46,7 @@ public class TeamBuilderApp {
     private void runTeamBuilder() {
         boolean keepGoing = true;
         String command = null;
+        input = new Scanner(System.in);
 
         init();
 
@@ -51,6 +65,19 @@ public class TeamBuilderApp {
         System.out.println("\nThe application will now end.");
     }
 
+    // EFFECTS: displays menu to user
+    private void displayMenu() {
+        System.out.println("\nSelect from:");
+        System.out.println("\ta -> Add character to Character Archive");
+        System.out.println("\tr -> Remove character from Character Archive");
+        System.out.println("\tv -> View all characters in Character Archive");
+        System.out.println("\tf -> Filter characters by element or role");
+        System.out.println("\tt -> Build a team");
+        System.out.println("\ts -> Save current Character Archive");
+        System.out.println("\tl -> Load a saved Character Archive");
+        System.out.println("\tq -> Quit");
+    }
+
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
@@ -64,6 +91,10 @@ public class TeamBuilderApp {
             filterCharacters();
         } else if (command.equals("t")) {
             buildTeam();
+        } else if (command.equals("s")) {
+            saveCharacterArchive();  
+        } else if (command.equals("l")) {
+            loadCharacterArchive();
         } else {
             System.out.println("Invalid Selection");
         }
@@ -76,17 +107,6 @@ public class TeamBuilderApp {
         team = new TeamComposition();
         input = new Scanner(System.in);
         input.useDelimiter("\r?\n|\r");
-    }
-
-    // EFFECTS: displays menu to user
-    private void displayMenu() {
-        System.out.println("\nSelect from:");
-        System.out.println("\ta -> Add character to Character Archive");
-        System.out.println("\tr -> Remove character from Character Archive");
-        System.out.println("\tv -> View all characters in Character Archive");
-        System.out.println("\tf -> Filter characters by element or role");
-        System.out.println("\tt -> Build a team");
-        System.out.println("\tq -> Quit");
     }
 
     // MODIFIES: this
@@ -232,5 +252,17 @@ public class TeamBuilderApp {
         for (String reaction : team.getElementalReactions()) {
             System.out.println("**" + reaction + "**");
         }
+    }
+
+
+    // EFFECTS: saves the current Character Archive to file
+    private void saveCharacterArchive() {
+        //stub
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads previously saved Character Archive from file
+    private void loadCharacterArchive() {
+        //stub
     }
 }
