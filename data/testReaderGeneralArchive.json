@@ -11,6 +11,10 @@
         ],
         "name": "Furina",
         "element": "Hydro"
-    }
+    },
 
+    {
+        "name": "Qiqi",
+        "element": "Cryo"
+    }
 ]}
