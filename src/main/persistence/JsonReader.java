@@ -59,7 +59,7 @@ public class JsonReader {
         }
     }
 
-    // MODIFIES: wr
+    // MODIFIES: archive
     // EFFECTS: parses thingy from JSON object and adds it to archive
     private void addCharacter(CharacterArchive archive, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
