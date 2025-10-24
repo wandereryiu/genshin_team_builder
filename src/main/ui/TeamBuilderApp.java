@@ -1,6 +1,7 @@
 package ui;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -257,12 +258,24 @@ public class TeamBuilderApp {
 
     // EFFECTS: saves the current Character Archive to file
     private void saveCharacterArchive() {
-        //stub
+        try {
+            jsonWriter.open();
+            jsonWriter.write(archive);
+            jsonWriter.close();
+            System.out.println("Saved to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
 
     // MODIFIES: this
     // EFFECTS: loads previously saved Character Archive from file
     private void loadCharacterArchive() {
-        //stub
+        try {
+            archive = jsonReader.read();
+            System.out.println("Loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }
