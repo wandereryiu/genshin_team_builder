@@ -68,12 +68,17 @@ public class CharacterArchive implements Writable {
         return filteredRoleList;
     }
 
+    // EFFECTS: returns the number of characters in this Character Archive
+    public int numCharacters() {
+        return characters.size();
+    }
+
+
     // Referenced from JsonSerializationDemo
 
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("archive", "Character Archive");
         json.put("characters", charactersToJson());
         return json;
     }
