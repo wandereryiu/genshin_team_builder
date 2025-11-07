@@ -63,6 +63,7 @@ public class Character implements Writable {
     }
 
     // Referenced from JsonSerializationDemo
+    // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
     @Override
     public JSONObject toJson() {

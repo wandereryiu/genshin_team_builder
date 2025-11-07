@@ -13,6 +13,7 @@ import org.json.*;
 
 
 // Referenced from JSonSerializationDemo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 // Represents a reader that reads archive from JSON data stored in file
 public class JsonReader {

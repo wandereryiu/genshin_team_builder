@@ -9,6 +9,7 @@ import java.util.Set;
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
 // Referenced from JSonSerializationDemo
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 @ExcludeFromJacocoGeneratedReport
 public class JsonTest {

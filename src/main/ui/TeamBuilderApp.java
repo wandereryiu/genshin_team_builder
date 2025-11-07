@@ -17,6 +17,8 @@ import persistence.JsonWriter;
  * 
  * 
  * Code from TellerApp and JsonSerializationDemo provided from EdX Course Page
+ * TellerApp repository: https://github.students.cs.ubc.ca/CPSC210/TellerApp
+ * JsonSerializationDemo repository: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
  * 
  * 
  * 
