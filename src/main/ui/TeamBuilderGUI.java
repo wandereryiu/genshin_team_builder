@@ -1,11 +1,9 @@
 package ui;
 
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 
@@ -28,7 +26,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         super("Genshin Impact Team Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(false);
-        setSize(getPreferredSize());
+        setSize(800,600);
         setLayout(new BorderLayout());
         setVisible(true);
         setLocationRelativeTo(null);
@@ -48,6 +46,20 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         JButton removeButton = new JButton("Remove character");
         JButton buildButton = new JButton("Build a team composition");
 
+        panel.add(loadButton);
+        panel.add(saveButton);
+        panel.add(viewButton);
+        panel.add(addButton);
+        panel.add(removeButton);
+        panel.add(buildButton);
+
+        loadButton.addActionListener(this);
+        saveButton.addActionListener(this);
+        viewButton.addActionListener(this);
+        addButton.addActionListener(this);
+        removeButton.addActionListener(this);
+        buildButton.addActionListener(this);
+
         return panel;
     }
 
@@ -58,10 +70,13 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         return mainPanel;
     }
 
+    // EFFECTS: performs action when user selects corresponding button
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
+      // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+
+
     }
 
 }
