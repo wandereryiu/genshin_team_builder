@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("Genshin Impact Team Builder");
         try {
-            new TeamBuilderApp();
+            new TeamBuilderGUI();
         } catch (FileNotFoundException e) {
             System.out.println("Unable to run application: file not found");
         }
