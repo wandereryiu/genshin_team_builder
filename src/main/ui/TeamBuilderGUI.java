@@ -2,7 +2,6 @@ package ui;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 import javax.swing.*;
 
@@ -10,7 +9,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
-import model.Character;
 import model.CharacterArchive;
 import model.TeamComposition;
 import persistence.JsonReader;
@@ -22,6 +20,8 @@ import persistence.JsonWriter;
  * https://github.students.cs.ubc.ca/CPSC210/B02-SpaceInvadersBase
  * https://docs.oracle.com/javase/tutorial/uiswing/events/actionlistener.html
  * https://docs.oracle.com/javase/7/docs/api/java/awt/BorderLayout.html
+ * https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html
+ * https://docs.oracle.com/javase/tutorial/uiswing/components/button.html
  * https://stackoverflow.com/questions/2935232/show-animated-gif
  * 
  */
@@ -38,41 +38,58 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
     // private JLabel label;
     // private ImageIcon image;
 
+    private JButton loadButton;
+    private JButton saveButton;
+    private JButton viewButton;
+    private JButton addButton;
+    private JButton removeButton;
+    private JButton buildButton;
+
     // EFFECTS: sets up window in which Genshin Impact Team Builder will execute
     public TeamBuilderGUI() throws FileNotFoundException {
         super("Genshin Impact Team Builder");
+
+        archive = new CharacterArchive();
+        team = new TeamComposition();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(false);
-        setSize(800,600);
+        setSize(800, 600);
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
 
-        // TODO: Set aesthetics if there is time to do later 
+        // TODO: Add welcome screen visuals
         // image = new ImageIcon();
         // label = new JLabel();
         // label.setText("");
         // label.setIcon(image);
         // add(label, BorderLayout.NORTH);
 
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+
         add(menuPanel(), BorderLayout.SOUTH);
         add(mainPanel(), BorderLayout.CENTER);
+
+        showHomeDisplay();
 
         setVisible(true);
         // repaint();
         // revalidate();
     }
 
-    // EFFECTS: creates a menu panel with buttons 
-    //          located at the bottom of the application
+    // EFFECTS: creates a menu panel with buttons
     private JPanel menuPanel() {
         JPanel panel = new JPanel();
 
-        JButton loadButton = new JButton("Load saved file");
-        JButton saveButton = new JButton("Save Character Archive");
-        JButton viewButton = new JButton("View Character Archive");
-        JButton addButton = new JButton("Add a character");
-        JButton removeButton = new JButton("Remove character");
-        JButton buildButton = new JButton("Build a team composition");
+        loadButton = new JButton("Load saved file");
+        saveButton = new JButton("Save Character Archive");
+        viewButton = new JButton("View Character Archive");
+        addButton = new JButton("Add a character");
+        removeButton = new JButton("Remove character");
+        buildButton = new JButton("Build a team composition");
 
         panel.add(loadButton);
         panel.add(saveButton);
@@ -91,6 +108,21 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         return panel;
     }
 
+    // MODIFIES: this
+    // EFFECTS: changes display
+    private void switchDisplay(JPanel screen) {
+        mainPanel.removeAll();
+        mainPanel.add(screen, BorderLayout.CENTER);
+        mainPanel.revalidate();
+        mainPanel.repaint();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: changes display back to default home screen
+    private void showHomeDisplay() {
+        switchDisplay(new JPanel());
+    }
+
     // EFFECTS: creates the main panel where all content will be displayed
     private JPanel mainPanel() {
         mainPanel = new JPanel();
@@ -101,12 +133,23 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
     // EFFECTS: performs action when user selects corresponding button
     @Override
     public void actionPerformed(ActionEvent e) {
-      // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        Object source = e.getSource();
 
+        if (archive.getAllCharacters().isEmpty()) {
+            buildButton.setEnabled(false);
+            removeButton.setEnabled(false);
+        }
+
+        if (source == loadButton) {
+            loadCharacterArchive();
+        } else if (source == saveButton) {
+            saveCharacterArchive();
+        } else if (source == viewButton || source == removeButton || source == buildButton) {
+            switchDisplay(new CharacterPanel(archive));
+        }
     }
 
-     // EFFECTS: saves the current Character Archive to file
+    // EFFECTS: saves the current Character Archive to file
     private void saveCharacterArchive() {
         try {
             jsonWriter.open();
