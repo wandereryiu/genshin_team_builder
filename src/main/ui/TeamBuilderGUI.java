@@ -37,15 +37,13 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
     private JsonReader jsonReader;
 
     private JPanel mainPanel;
-    // private JLabel label;
-    // private ImageIcon image;
-
     private JButton loadButton;
     private JButton saveButton;
     private JButton viewButton;
     private JButton addButton;
     private JButton removeButton;
     private JButton buildButton;
+    private JButton homeButton;
 
     // EFFECTS: sets up window in which Genshin Impact Team Builder will execute
     public TeamBuilderGUI() throws FileNotFoundException {
@@ -106,6 +104,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
     private JPanel menuPanel() {
         JPanel panel = new JPanel();
 
+        homeButton = new JButton("Home");
         loadButton = new JButton("Load saved file");
         saveButton = new JButton("Save Character Archive");
         viewButton = new JButton("View Character Archive");
@@ -113,6 +112,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         removeButton = new JButton("Remove character");
         buildButton = new JButton("Build a team composition");
 
+        panel.add(homeButton);
         panel.add(loadButton);
         panel.add(saveButton);
         panel.add(viewButton);
@@ -120,6 +120,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         panel.add(removeButton);
         panel.add(buildButton);
 
+        homeButton.addActionListener(this);
         loadButton.addActionListener(this);
         saveButton.addActionListener(this);
         viewButton.addActionListener(this);
@@ -173,6 +174,9 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
             switchDisplay(new AddCharacter(archive));
         } else if (source == removeButton) {
             switchDisplay(new RemoveCharacter(archive));
+        } else if(source == homeButton) {
+            switchDisplay(new JPanel());
+            showLabel();
         }
     }
 
