@@ -28,11 +28,13 @@ public class CharacterPanel extends JPanel {
     private JTextField rolesField;
     private JComboBox<String> removeBox;
 
-    // EFFECTS: constructs new panel for given Character Archive and includes 
-    //          add and remove functionality
+    // EFFECTS: constructs new panel for add and remove functionality
     public CharacterPanel(CharacterArchive archive) {
         this.archive = archive;
         setLayout(new BorderLayout());
+
+        addButton = new JButton("Add character");
+        removeButton = new JButton("Remove character");
 
         add(createAddPanel(), BorderLayout.NORTH);
         add(createRemovePanel(), BorderLayout.SOUTH);
@@ -44,7 +46,7 @@ public class CharacterPanel extends JPanel {
     // MODIFIES: this
     // EFFECTS: constructs a JPanel for entering new character information
     private JPanel createAddPanel() {
-        JPanel addPanel = new JPanel(new GridLayout());
+        JPanel addPanel = new JPanel(new GridLayout(4, 2, 5, 5));
         addPanel.setBorder(BorderFactory.createTitledBorder("Add characters"));
 
         addPanel.add(new JLabel("Character Name:"));
@@ -59,7 +61,6 @@ public class CharacterPanel extends JPanel {
         rolesField = new JTextField();
         addPanel.add(rolesField);
 
-        addPanel.add(new JLabel("Add another character"));
         addPanel.add(new JLabel());
         addPanel.add(addButton);
 
@@ -164,5 +165,4 @@ public class CharacterPanel extends JPanel {
             }
         });
     }
-
 }
