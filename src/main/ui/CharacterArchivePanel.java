@@ -27,6 +27,7 @@ public class CharacterArchivePanel extends JPanel {
         setLayout(new BorderLayout());
         display = new JTextArea();
         display.setEditable(false);
+        display.setFont(new Font("Arial", Font.PLAIN, 16));
         add(new JScrollPane(display), BorderLayout.EAST);
 
         updateDisplay(archive);
@@ -38,8 +39,8 @@ public class CharacterArchivePanel extends JPanel {
         StringBuilder characterInfo = new StringBuilder();
 
         for (Character c : archive.getAllCharacters()) {
-            characterInfo.append(c.getName()).append(" ⋆˚࿔ Element: ")
-                    .append(" ⋆˚࿔ Roles: ").append(c.getRoles());
+            characterInfo.append(c.getName()).append(" | Element: ").append(c.getElement())
+                    .append(" | Roles: ").append(c.getRoles()).append("\n");
         }
 
         display.setText(characterInfo.toString());
