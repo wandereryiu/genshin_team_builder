@@ -56,9 +56,10 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(false);
-        setSize(800, 600);
+        setSize(1200, 800);
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
+        setResizable(false);
 
         // TODO: Add welcome screen visuals
         // image = new ImageIcon();
@@ -87,7 +88,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         loadButton = new JButton("Load saved file");
         saveButton = new JButton("Save Character Archive");
         viewButton = new JButton("View Character Archive");
-        addButton = new JButton("Add a character");
+        addButton = new JButton("Add character");
         removeButton = new JButton("Remove character");
         buildButton = new JButton("Build a team composition");
 
@@ -135,16 +136,23 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
-        if (archive.getAllCharacters().isEmpty()) {
-            buildButton.setEnabled(false);
-            removeButton.setEnabled(false);
-        }
+        // if (archive.getAllCharacters().isEmpty()) {
+        //     buildButton.setEnabled(false);
+        //     removeButton.setEnabled(false);
+        //     viewButton.setEnabled(false);
+        // }
 
         if (source == loadButton) {
             loadCharacterArchive();
+            team = new TeamComposition();
+            switchDisplay(new CharacterArchivePanel(archive));
         } else if (source == saveButton) {
             saveCharacterArchive();
-        } else if (source == viewButton || source == removeButton || source == buildButton) {
+        } else if (source == viewButton) {
+            switchDisplay(new CharacterArchivePanel(archive));
+        } else if (source == buildButton) {
+            switchDisplay(new TeamBuilderDisplay(archive, team));
+        } else if (source == addButton || source == removeButton) {
             switchDisplay(new CharacterPanel(archive));
         }
     }
@@ -155,9 +163,9 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
             jsonWriter.open();
             jsonWriter.write(archive);
             jsonWriter.close();
-            System.out.println("Saved to " + JSON_STORE);
+            JOptionPane.showMessageDialog(this, "Character archive has been saved.");
         } catch (FileNotFoundException e) {
-            System.out.println("Unable to write to file: " + JSON_STORE);
+            JOptionPane.showMessageDialog(this, "Unable to read from file: " + JSON_STORE);
         }
     }
 
@@ -165,9 +173,10 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
     private void loadCharacterArchive() {
         try {
             archive = jsonReader.read();
-            // System.out.println("Loaded from " + JSON_STORE);
+            team = new TeamComposition();
+            switchDisplay(new CharacterArchivePanel(archive));
         } catch (IOException e) {
-            // System.out.println("Unable to read from file: " + JSON_STORE);
+            JOptionPane.showMessageDialog(this, "Unable to read from file: " + JSON_STORE);
         }
     }
 
