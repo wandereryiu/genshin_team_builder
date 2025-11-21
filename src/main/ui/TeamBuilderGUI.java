@@ -26,6 +26,7 @@ import persistence.JsonWriter;
  * 
  */
 
+// Represents general GUI for program, loads when application starts
 @ExcludeFromJacocoGeneratedReport
 public class TeamBuilderGUI extends JFrame implements ActionListener {
     private static final String JSON_STORE = "./data/archive.json";
@@ -67,7 +68,6 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         add(menuPanel(), BorderLayout.SOUTH);
         add(mainPanel(), BorderLayout.CENTER);
 
-        showHomeDisplay();
         showLabel();
 
         setVisible(true);
@@ -75,14 +75,20 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
 
     // EFFECTS: shows a title and gif upon launching application
     private void showLabel() {
-        Icon icon = new ImageIcon("images/dahlia-frosting.gif");
+        ImageIcon icon = new ImageIcon("images/dahlia-frosting.gif");
+
+        int width = 400;
+        int height = 400;
+        Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT);
+
+        Icon scaledIcon = new ImageIcon(scaledImage);
 
         JLabel label = new JLabel();
 
-        label.setIcon(icon);
+        label.setIcon(scaledIcon);
         label.setFont(new Font("Monospaced", Font.BOLD, 18));
         label.setText("<html><div style='text-align:center;'>"
-                + "⊹₊˚‧︵‿₊⟡⟡⟡⟡⟡₊‿︵‧˚₊⊹<br>"
+                + "⊹₊˚‧︵‿₊˖₊⊹₊⊹₊⊹˖₊‿︵‧˚₊⊹<br>"
                 + "「 ✦ Genshin Impact Team Builder ✦ 」<br>"
                 + "by Yiu"
                 + "</div></html>");
@@ -92,7 +98,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setVerticalAlignment(JLabel.CENTER);
 
-        add(label, BorderLayout.CENTER);
+        mainPanel.add(label, BorderLayout.CENTER);
     }
 
     // EFFECTS: creates a menu panel with buttons
@@ -120,6 +126,8 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         removeButton.addActionListener(this);
         buildButton.addActionListener(this);
 
+        disableButtons();
+
         return panel;
     }
 
@@ -132,11 +140,11 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         mainPanel.repaint();
     }
 
-    // MODIFIES: this
-    // EFFECTS: changes display back to default home screen
-    private void showHomeDisplay() {
-        switchDisplay(new JPanel());
-    }
+    // // MODIFIES: this
+    // // EFFECTS: changes display back to default home screen
+    // private void showHomeDisplay() {
+    // switchDisplay(new JPanel());
+    // }
 
     // EFFECTS: creates the main panel where all content will be displayed
     private JPanel mainPanel() {
@@ -149,12 +157,6 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-
-        // if (archive.getAllCharacters().isEmpty()) {
-        // buildButton.setEnabled(false);
-        // removeButton.setEnabled(false);
-        // viewButton.setEnabled(false);
-        // }
 
         if (source == loadButton) {
             loadCharacterArchive();
@@ -191,6 +193,24 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
             switchDisplay(new CharacterArchivePanel(archive));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Unable to read from file: " + JSON_STORE);
+        }
+
+        loadButton.setEnabled(true);
+        saveButton.setEnabled(true);
+
+        boolean hasCharacters = (!(archive.getAllCharacters().isEmpty()));
+        viewButton.setEnabled(hasCharacters);
+        removeButton.setEnabled(hasCharacters);
+        buildButton.setEnabled(hasCharacters);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: disables specified buttons if the archive is empty
+    private void disableButtons() {
+        if (archive.getAllCharacters().isEmpty()) {
+            buildButton.setEnabled(false);
+            removeButton.setEnabled(false);
+            viewButton.setEnabled(false);
         }
     }
 
