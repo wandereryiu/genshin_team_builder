@@ -23,6 +23,7 @@ import persistence.JsonWriter;
  * https://docs.oracle.com/javase/tutorial/uiswing/layout/border.html
  * https://docs.oracle.com/javase/tutorial/uiswing/components/button.html
  * https://stackoverflow.com/questions/2935232/show-animated-gif
+ * https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon
  * 
  */
 
@@ -126,7 +127,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         removeButton.addActionListener(this);
         buildButton.addActionListener(this);
 
-        disableButtons();
+        // disableButtons();
 
         return panel;
     }
@@ -168,8 +169,10 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
             switchDisplay(new CharacterArchivePanel(archive));
         } else if (source == buildButton) {
             switchDisplay(new TeamBuilderDisplay(archive, team));
-        } else if (source == addButton || source == removeButton) {
-            switchDisplay(new CharacterPanel(archive));
+        } else if (source == addButton) {
+            switchDisplay(new AddCharacter(archive));
+        } else if (source == removeButton) {
+            switchDisplay(new RemoveCharacter(archive));
         }
     }
 
@@ -198,20 +201,20 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         loadButton.setEnabled(true);
         saveButton.setEnabled(true);
 
-        boolean hasCharacters = (!(archive.getAllCharacters().isEmpty()));
-        viewButton.setEnabled(hasCharacters);
-        removeButton.setEnabled(hasCharacters);
-        buildButton.setEnabled(hasCharacters);
+        // boolean hasCharacters = (!(archive.getAllCharacters().isEmpty()));
+        // viewButton.setEnabled(hasCharacters);
+        // removeButton.setEnabled(hasCharacters);
+        // buildButton.setEnabled(hasCharacters);
     }
 
-    // MODIFIES: this
-    // EFFECTS: disables specified buttons if the archive is empty
-    private void disableButtons() {
-        if (archive.getAllCharacters().isEmpty()) {
-            buildButton.setEnabled(false);
-            removeButton.setEnabled(false);
-            viewButton.setEnabled(false);
-        }
-    }
+    // // MODIFIES: this
+    // // EFFECTS: disables specified buttons if the archive is empty
+    // private void disableButtons() {
+    //     if (archive.getAllCharacters().isEmpty()) {
+    //         buildButton.setEnabled(false);
+    //         removeButton.setEnabled(false);
+    //         viewButton.setEnabled(false);
+    //     }
+    // }
 
 }
