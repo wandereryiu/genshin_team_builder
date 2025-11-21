@@ -57,7 +57,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(false);
-        setSize(1200, 800);
+        setSize(1000, 600);
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
         setResizable(false);
