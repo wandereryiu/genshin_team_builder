@@ -28,7 +28,6 @@ public class TeamBuilderDisplay extends JPanel {
     private JComboBox<String> removeBox;
     private JButton addButton;
     private JButton removeButton;
-    private JButton clearButton;
     private JTextArea teamComp;
 
     // EFFECTS: constructs a new panel where user can build their team composition
@@ -45,11 +44,10 @@ public class TeamBuilderDisplay extends JPanel {
         updateTeam();
     }
 
-    // EFFECTS: creates panel containing options for useres to add or
+    // EFFECTS: creates panel containing options for users to add or
     //          remove characters from current team composition
     public JPanel createSelectionPanel() {
         JPanel panel = new JPanel(new GridLayout(3,3, 5,5));
-
 
         characterBox = new JComboBox<>();
         panel.add(characterBox);
@@ -59,8 +57,6 @@ public class TeamBuilderDisplay extends JPanel {
 
         removeBox = new JComboBox<>();
         panel.add(removeBox);
-        
-        clearButton = new JButton("Clear team");
 
         actionListener();
 
@@ -82,18 +78,6 @@ public class TeamBuilderDisplay extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removeCharacterFromTeam();
-            }
-        });
-
-        clearButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                while (!(team.getAllCharacters().isEmpty())) {
-                    Character c = team.getAllCharacters().get(0);
-                    team.removeCharacter(c);
-                }
-                updateCharacterOptions();
-                updateTeam();
             }
         });
     }
@@ -126,7 +110,6 @@ public class TeamBuilderDisplay extends JPanel {
 
         addButton.setEnabled(characterBox.getItemCount() > 0 && team.size() < 4);
         removeButton.setEnabled(team.size() > 0);
-
     }
 
     // MODIFIES: this
@@ -200,6 +183,5 @@ public class TeamBuilderDisplay extends JPanel {
         }
 
         teamComp.setText(teamInfo.toString());
-
     }
 }
