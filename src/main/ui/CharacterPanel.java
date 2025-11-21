@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.Character;
 import model.CharacterArchive;
 
@@ -19,6 +20,8 @@ import model.CharacterArchive;
  * 
  */
 
+// Represents panel where user can remove or add character
+@ExcludeFromJacocoGeneratedReport
 public class CharacterPanel extends JPanel {
     private CharacterArchive archive;
     private JButton addButton;

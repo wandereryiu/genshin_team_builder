@@ -24,7 +24,6 @@ import persistence.JsonWriter;
  * 
  */
 
-
 // Represents the team builder application
 @ExcludeFromJacocoGeneratedReport
 public class TeamBuilderApp {
