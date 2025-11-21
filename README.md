@@ -28,3 +28,20 @@ This project is of personal interest to me because Genshin Impact is a game I ha
 - As a user, I want to be able to add and keep track of what talent ascension materials I need, including what days of the week I can farm them
 
 - As a user, I want to be able add characters I wish to obtain in the future into a wishlist
+
+<br>
+
+# Instructions for End User
+- You can view the visual component upon application startup
+
+- You can view all characters that have been added to your Character Archive by clicking "View Character Archive"
+
+- You can add a character along with their assigned element and roles to your Character Archive by clicking "Add character"
+
+- You can remove a chracter from your Character Archive by clicking "Remove character"
+
+- You can build a team composition by clicking "Build team composition"
+
+- You can save the current state of the application by clicking "Save Character Archive"
+
+- You can reload the previously saved state of the application by clicking "Load saved file"
