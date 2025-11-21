@@ -61,13 +61,6 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        // TODO: Add welcome screen visuals
-        // image = new ImageIcon();
-        // label = new JLabel();
-        // label.setText("");
-        // label.setIcon(image);
-        // add(label, BorderLayout.NORTH);
-
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
@@ -75,10 +68,31 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         add(mainPanel(), BorderLayout.CENTER);
 
         showHomeDisplay();
+        showLabel();
 
         setVisible(true);
-        // repaint();
-        // revalidate();
+    }
+
+    // EFFECTS: shows a title and gif upon launching application
+    private void showLabel() {
+        Icon icon = new ImageIcon("images/dahlia-frosting.gif");
+
+        JLabel label = new JLabel();
+
+        label.setIcon(icon);
+        label.setFont(new Font("Monospaced", Font.BOLD, 18));
+        label.setText("<html><div style='text-align:center;'>"
+                + "⊹₊˚‧︵‿₊⟡⟡⟡⟡⟡₊‿︵‧˚₊⊹<br>"
+                + "「 ✦ Genshin Impact Team Builder ✦ 」<br>"
+                + "by Yiu"
+                + "</div></html>");
+
+        label.setHorizontalTextPosition(JLabel.CENTER);
+        label.setVerticalTextPosition(JLabel.TOP);
+        label.setHorizontalAlignment(JLabel.CENTER);
+        label.setVerticalAlignment(JLabel.CENTER);
+
+        add(label, BorderLayout.CENTER);
     }
 
     // EFFECTS: creates a menu panel with buttons
@@ -137,9 +151,9 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         Object source = e.getSource();
 
         // if (archive.getAllCharacters().isEmpty()) {
-        //     buildButton.setEnabled(false);
-        //     removeButton.setEnabled(false);
-        //     viewButton.setEnabled(false);
+        // buildButton.setEnabled(false);
+        // removeButton.setEnabled(false);
+        // viewButton.setEnabled(false);
         // }
 
         if (source == loadButton) {
