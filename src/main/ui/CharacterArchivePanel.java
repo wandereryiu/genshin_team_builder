@@ -27,7 +27,7 @@ public class CharacterArchivePanel extends JPanel {
         setLayout(new BorderLayout());
         display = new JTextArea();
         display.setEditable(false);
-        display.setFont(new Font("Arial", Font.PLAIN, 16));
+        display.setFont(new Font("Dialog", Font.PLAIN, 14));
         add(new JScrollPane(display), BorderLayout.EAST);
 
         updateDisplay(archive);
