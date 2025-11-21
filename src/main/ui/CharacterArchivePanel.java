@@ -44,6 +44,4 @@ public class CharacterArchivePanel extends JPanel {
 
         display.setText(characterInfo.toString());
     }
-
-
 }
