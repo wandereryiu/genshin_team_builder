@@ -74,8 +74,8 @@ public class AddCharacter extends JPanel {
         String element = elementField.getText().trim();
         String rolesText = rolesField.getText().trim();
 
-        if (name.isEmpty() || element.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill out all the fields!");
+        if (name.isEmpty() || element.isEmpty() || rolesText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill out all the fields! <( •̀ᴖ•́)>");
             return;
         }
 
