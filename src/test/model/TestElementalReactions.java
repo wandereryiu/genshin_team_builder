@@ -98,7 +98,7 @@ public class TestElementalReactions {
         testElements.add("Electro");
 
         Set<String> testReactions = ElementalReactions.getReactions(testElements);
-        assertTrue(testReactions.contains("Electro Charged")); 
+        assertTrue(testReactions.contains("Electro-Charged")); 
     }
 
     @Test
@@ -148,7 +148,7 @@ public class TestElementalReactions {
         Set<String> testReactions = ElementalReactions.getReactions(testElements);
         assertTrue(testReactions.contains("Burning"));
         assertTrue(testReactions.contains("Vaporize"));
-        assertTrue(testReactions.contains("Electro Charged")); 
+        assertTrue(testReactions.contains("Electro-Charged")); 
         assertTrue(testReactions.contains("Bloom"));
     }
 

@@ -21,7 +21,7 @@ public class ElementalReactions {
         ELEMENTAL_REACTIONS.put(Set.of("Dendro", "Pyro"), "Burning");
         ELEMENTAL_REACTIONS.put(Set.of("Dendro", "Electro"), "Aggravate/Quicken");
         ELEMENTAL_REACTIONS.put(Set.of("Hydro", "Pyro"), "Vaporize");
-        ELEMENTAL_REACTIONS.put(Set.of("Hydro", "Electro"), "Electro Charged");
+        ELEMENTAL_REACTIONS.put(Set.of("Hydro", "Electro"), "Electro-Charged");
         ELEMENTAL_REACTIONS.put(Set.of("Hydro", "Cryo"), "Freeze");
         ELEMENTAL_REACTIONS.put(Set.of("Cryo", "Pyro"), "Melt");
         ELEMENTAL_REACTIONS.put(Set.of("Cryo", "Electro"), "Superconduct");
