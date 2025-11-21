@@ -100,7 +100,7 @@ public class AddCharacter extends JPanel {
     }
 
 
-    // EFFECTS: responds to add and remove buttons if user clicks on either
+    // EFFECTS: responds to add button once user clicks on it
     private void attachListeners() {
         addButton.addActionListener(new ActionListener() {
             @Override

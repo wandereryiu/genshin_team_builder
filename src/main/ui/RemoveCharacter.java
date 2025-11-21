@@ -89,7 +89,7 @@ public class RemoveCharacter extends JPanel {
         }
     }
 
-    // EFFECTS: responds to add and remove buttons if user clicks on either
+    // EFFECTS: responds to remove button once user clicks on it
     private void attachListeners() {
 
         removeButton.addActionListener(new ActionListener() {
