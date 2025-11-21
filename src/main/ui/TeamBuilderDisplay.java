@@ -62,6 +62,15 @@ public class TeamBuilderDisplay extends JPanel {
         
         clearButton = new JButton("Clear team");
 
+        actionListener();
+
+        panel.add(addButton);
+        panel.add(removeButton);
+
+        return panel;
+    }
+
+    private void actionListener() {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,11 +96,6 @@ public class TeamBuilderDisplay extends JPanel {
                 updateTeam();
             }
         });
-
-        panel.add(addButton);
-        panel.add(removeButton);
-
-        return panel;
     }
 
     // EFFECTS: displays current team composition
