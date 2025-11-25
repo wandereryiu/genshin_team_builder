@@ -174,7 +174,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
             switchDisplay(new AddCharacter(archive));
         } else if (source == removeButton) {
             switchDisplay(new RemoveCharacter(archive));
-        } else if(source == homeButton) {
+        } else if (source == homeButton) {
             switchDisplay(new JPanel());
             showLabel();
         }
