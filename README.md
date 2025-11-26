@@ -45,3 +45,106 @@ This project is of personal interest to me because Genshin Impact is a game I ha
 - You can save the current state of the application by clicking "Save Character Archive"
 
 - You can reload the previously saved state of the application by clicking "Load saved file"
+
+## Phase 4: Task 2
+
+Tue Nov 25 23:15:31 PST 2025
+Support role(s) added for Ineffa
+
+Tue Nov 25 23:15:31 PST 2025
+Sub-DPS role(s) added for Ineffa
+
+Tue Nov 25 23:15:31 PST 2025
+Ineffa successfuly added to archive.
+
+Tue Nov 25 23:15:31 PST 2025
+Neuvilette has been created!
+
+Tue Nov 25 23:15:31 PST 2025
+Main-DPS role(s) added for Neuvilette
+
+Tue Nov 25 23:15:31 PST 2025
+Neuvilette successfuly added to archive.
+
+Tue Nov 25 23:15:31 PST 2025
+Furina has been created!
+
+Tue Nov 25 23:15:31 PST 2025
+Support role(s) added for Furina
+
+Tue Nov 25 23:15:31 PST 2025
+Sub-DPS role(s) added for Furina
+
+Tue Nov 25 23:15:31 PST 2025
+Furina successfuly added to archive.
+
+Tue Nov 25 23:15:31 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:31 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:51 PST 2025
+Nefer has been created!
+
+Tue Nov 25 23:15:51 PST 2025
+Main DPS role(s) added for Nefer
+
+Tue Nov 25 23:15:51 PST 2025
+Nefer successfuly added to archive.
+
+Tue Nov 25 23:15:54 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:55 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:56 PST 2025
+Elemental reactions calculated.
+
+Tue Nov 25 23:15:56 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:56 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:56 PST 2025
+Elemental reactions calculated.
+
+Tue Nov 25 23:15:57 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:57 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:57 PST 2025
+Elemental reactions calculated.
+
+Tue Nov 25 23:15:57 PST 2025
+Elemental reactions calculated.
+
+Tue Nov 25 23:15:59 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:15:59 PST 2025
+Elemental reactions calculated.
+
+Tue Nov 25 23:16:00 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:16:00 PST 2025
+Elemental reactions calculated.
+
+Tue Nov 25 23:16:03 PST 2025
+Viewed all characters in the Character Archive.
+
+Tue Nov 25 23:16:04 PST 2025
+Ineffa has been created!
+
+Tue Nov 25 23:16:04 PST 2025
+Ineffa successfully removed from archive.
+
+Tue Nov 25 23:16:06 PST 2025
+Viewed all characters in the Character Archive.
+
+## Phase 4: Task 3
