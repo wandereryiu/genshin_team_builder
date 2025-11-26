@@ -148,3 +148,9 @@ Tue Nov 25 23:16:06 PST 2025
 Viewed all characters in the Character Archive.
 
 ## Phase 4: Task 3
+
+The first change I would consider upon reflection of the design presented in my UML class diagram is creating an interface or abstract class that acts as a "container" for Character instances. Since both CharacterArchive and TeamComposition are have similar methods like removeCharacter, addCharacter, and identical getter methods, I could create a superclass to reduce duplication in my application. I would also change the data structure to be a Set instead of an ArrayList, because it reduces redundancy in checking for duplicates, and the order does not matter in this context. 
+
+Another change I would make is to try and encapsulate ElementalReactions into TeamComposition, because it is only needed in that one class. Having a separate helper class was only done to reduce method length in the beginning when I did not know as much about Java. Now that I can utilize HashMaps and Sets, I could find a way to reduce having to use helper class that does not have any associations to other classes in my diagram.
+
+For the UI, I could probably combined AddCharacter and RemoveCharacter into a single class that manages both functions. However, this is dependent on whether users to have the add and remove features in the same panel or separate. Additionally, I noticed that the names TeamBuilderDisplay and TeamBuilderGUI are confusing names. At the time, it made sense because TeamBuilderDisplay handled the formatting of the panel while TeamBuilderGUI handled UI interactions. Upon reflection, I realized it is confusing. I could probably rename TeamBuilderDisplay to TeamCompositionUI to indicate that the class is responsible for handling the logical implementation of TeamComposition in the user interface.
