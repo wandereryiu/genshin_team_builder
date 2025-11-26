@@ -10,6 +10,8 @@ import java.awt.event.*;
 
 import ca.ubc.cs.ExcludeFromJacocoGeneratedReport;
 import model.CharacterArchive;
+import model.EventLog;
+import model.Event;
 import model.TeamComposition;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -56,7 +58,7 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(false);
-        setSize(1000, 600);
+        setSize(1100, 600);
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
         setResizable(false);
@@ -70,6 +72,13 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
         showLabel();
 
         setVisible(true);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                printEventLog();
+            }
+        });
     }
 
     // EFFECTS: shows a title and gif upon launching application
@@ -220,5 +229,13 @@ public class TeamBuilderGUI extends JFrame implements ActionListener {
     //         viewButton.setEnabled(false);
     //     }
     // }
+
+    // EFFECTS: prints all events to console after exiting application
+    private void printEventLog() {
+        for (Event e: EventLog.getInstance()) {
+            System.out.println(e.toString() + "\n");
+
+        }
+    }
 
 }
