@@ -28,7 +28,7 @@ public class CharacterArchive implements Writable {
                 return false;
             }
         }
-        EventLog.getInstance().logEvent(new Event(character.getName() + "successfuly added to archive."));
+        EventLog.getInstance().logEvent(new Event(character.getName() + " successfuly added to archive."));
         characters.add(character);
         return true;
     }
@@ -42,7 +42,7 @@ public class CharacterArchive implements Writable {
         for (Character c : characters) {
             if (c.getName().equalsIgnoreCase(character.getName())) {
                 characters.remove(c);
-                EventLog.getInstance().logEvent(new Event(c.getName() + "successfully removed from archive."));
+                EventLog.getInstance().logEvent(new Event(c.getName() + " successfully removed from archive."));
                 return true;
             }
         }

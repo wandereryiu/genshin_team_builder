@@ -21,7 +21,7 @@ public class Character implements Writable {
 
         EventLog.getInstance().logEvent(
                 new Event(
-                        this.name + "with Element:" + this.element + " and Roles:" + this.roles + "has been created!"));
+                        this.name + " has been created!"));
     }
 
     public String getName() {
@@ -45,7 +45,7 @@ public class Character implements Writable {
             return;
         }
         if (roles.add(role)) {
-            EventLog.getInstance().logEvent(new Event(role + " has been added as a role for " + this.name));
+            EventLog.getInstance().logEvent(new Event(role + " role(s) added for " + this.name));
         }
     }
 
