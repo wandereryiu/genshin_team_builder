@@ -44,6 +44,7 @@ public class ElementalReactions {
         for (Map.Entry<Set<String>, String> entry: ELEMENTAL_REACTIONS.entrySet()) {
             if (elements.containsAll(entry.getKey())) {
                 elementalReactions.add(entry.getValue());
+                EventLog.getInstance().logEvent(new Event("Elemental reactions calculated."));
             }
         }
         

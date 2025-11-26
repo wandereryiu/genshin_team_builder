@@ -12,11 +12,16 @@ public class Character implements Writable {
     private String element; // one of: Anemo, Geo, Electro, Dendro, Hydro, Pyro, Cryo
     private Set<String> roles = new HashSet<>(); // Main DPS, Off-field DPS, Support, Healer, etc.
 
-    // EFFECTS: Creates a new character with a name and element that has an empty set of roles
+    // EFFECTS: Creates a new character with a name and element that has an empty
+    // set of roles
     public Character(String name, String element) {
         this.name = name;
         this.element = element;
         this.roles = new HashSet<>();
+
+        EventLog.getInstance().logEvent(
+                new Event(
+                        this.name + "with Element:" + this.element + " and Roles:" + this.roles + "has been created!"));
     }
 
     public String getName() {
@@ -39,11 +44,13 @@ public class Character implements Writable {
         if (role == null || role.isEmpty()) {
             return;
         }
-        roles.add(role);
+        if (roles.add(role)) {
+            EventLog.getInstance().logEvent(new Event(role + " has been added as a role for " + this.name));
+        }
     }
 
     // REQUIRES: role must not be an empty string
-    // MODIFIES: this 
+    // MODIFIES: this
     // EFFECTS: removes the role from existing set of roles if it is present
     public void removeRole(String role) {
         if (role == null || role.isEmpty()) {
@@ -53,8 +60,8 @@ public class Character implements Writable {
     }
 
     // REQUIRES: role must not be an empty string
-    // EFFECTS: returns true if the character already has the specified role, 
-    //          otherwise false
+    // EFFECTS: returns true if the character already has the specified role,
+    // otherwise false
     public boolean hasRole(String role) {
         if (role == null || role.isEmpty()) {
             return false;
